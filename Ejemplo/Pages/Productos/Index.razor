@@ -1,0 +1,58 @@
+﻿@page "/productos";
+@using Ejemplo.Data;
+<div class="row"> 
+    <div class="col">
+        <h3>Productos</h3>
+    </div>
+    <div>
+        <button class="btn btn-outline-success">
+            <i class="oi oi-plus"></i>
+        </button>
+    </div>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Productos</th>
+            <th>Precio</th>
+            <th>Unidades</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var producto in ListaDeProductos)
+        {
+            <tr>
+                <td class="col">@producto.Descripcion</td>
+                <td class="col-2">@producto.Precio</td>
+                <td class="col-2">@producto.Cantidad</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-warning">
+                            <i class="oi oi-pencil"></i>
+                        </button>
+                        <button class="btn btn-danger">
+                            <i class="oi oi-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@code {
+    public List<Productos> ListaDeProductos { get; set; } = new List<Productos>()
+    {
+        new Productos(){Descripcion = "Habichuela", Cantidad = 7, Precio = 50},
+        new Productos(){Descripcion = "Habichuela 1", Cantidad = 14, Precio = 60},
+        new Productos(){Descripcion = "Habichuela 2", Cantidad = 13, Precio = 70},
+        new Productos(){Descripcion = "Habichuela 3", Cantidad = 1, Precio = 150},
+        new Productos(){Descripcion = "Habichuela 4", Cantidad = 11, Precio = 250},
+        new Productos(){Descripcion = "Habichuela 5", Cantidad = 11, Precio = 450},
+        new Productos(){Descripcion = "Habichuela 6", Cantidad = 16, Precio = 550},
+    };
+}
